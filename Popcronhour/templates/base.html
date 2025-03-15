@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi aplicación{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Puedes agregar aquí tus archivos de CSS y JS -->
+</head>
+<body>
+    <!-- Barra de navegación u otros elementos globales -->
+    <nav>
+        <!-- Navegación -->
+    </nav>
+
+    <!-- Bloque de mensajes flash -->
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        {% block content %}
+        <!-- Aquí irá el contenido específico de cada página -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Pie de página -->
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO | PopcornHour</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <icon sizes="border-radius 20px"  src="{{ url_for('static', filename='/img/pop_logo.png') }}" alt="Logo PopcornHour">
+    <style>
+        /* Estilos para la barra de navegación */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            width: 50px;
+            height: auto;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .image-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-card p {
+            padding: 10px;
+        }
+
+        /* Estilos para el formulario de comentarios */
+        .comment-section {
+            margin-top: 40px;
+        }
+
+        .comment-section h2 {
+            text-align: center;
+        }
+
+        .comment-section form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .comment-section textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .comment-section input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-section button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment-section button:hover {
+            background-color: #555;
+        }
+
+        .comments-display {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .comments-display .comment {
+            margin-bottom: 20px;
+        }
+
+        .comments-display .comment p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de navegación con logo y enlaces -->
+    <nav>
+        <div class="logo">
+            <img sizes="border-radius 20px"  src="{{ url_for('static', filename='/img/pop_logo.png') }}" alt="Logo PopcornHour">
+        </div>
+        <div class="links">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1>Bienvenidos a PopcornHour</h1>
+        <p style="text-align: center;">Esta es la página principal donde podrás explorar las mejores películas y series.</p>
+
+        <!-- Sección de imágenes con descripción -->
+        <div class="image-grid">
+            <div class="image-card">
+                <img src="{{ url_for('static', filename='/img/s&m_image.png') }}" alt="Película 1">
+                <p>Sr. y Sra. Smith" es una película de acción y comedia romántica lanzada en 2005, protagonizada por Brad Pitt y Angelina Jolie. La trama sigue a un matrimonio aparentemente ordinario, John y Jane Smith, que llevan una vida rutinaria hasta que descubren que ambos son en realidad asesinos a sueldo que trabajan para agencias rivales. A medida que sus verdaderas identidades salen a la luz, su relación entra en crisis, lo que desata una serie de escenas llenas de acción, humor y conflictos matrimoniales mientras intentan eliminarse mutuamente, solo para descubrir que, a pesar de todo, siguen amándose.</p>
+            </div>
+            <div class="image-card">
+                <img src="{{ url_for('static', filename='/img/MOVIE_LUCI.png') }}" alt="Película 2">
+                <p>Lucy" (2014) es una película de ciencia ficción y acción dirigida por Luc Besson, protagonizada por Scarlett Johansson. La historia sigue a Lucy, una joven que es obligada a trabajar como mula de drogas. Después de que una de las bolsas de droga implantadas en su cuerpo se rompe, su cerebro comienza a acceder al 100% de su capacidad, otorgándole habilidades sobrehumanas como la telequinesis, la absorción instantánea de conocimiento y la manipulación del tiempo. A medida que sus poderes aumentan, Lucy lucha por encontrar el propósito de su evolución mientras enfrenta a peligrosos criminales que buscan capturarla.</p>
+            </div>
+            <div class="image-card">
+                <img src="{{ url_for('static', filename='/img/MOVIE_BABY.png') }}" alt="Película 3">
+                <p>Baby Driver" (2017), dirigida por Edgar Wright, es una película de acción centrada en Baby (Ansel Elgort), un joven y talentoso conductor de fugas que sufre de tinnitus, lo que lo obliga a escuchar música constantemente para concentrarse. Trabaja para una banda de criminales liderada por Doc (Kevin Spacey) y es el mejor en lo que hace. Sin embargo, Baby desea dejar la vida criminal atrás cuando se enamora de Debora (Lily James), una camarera. Para ello, debe completar un último trabajo, pero las cosas se complican cuando los planes de la banda se desmoronan y Baby se ve obligado a luchar por su vida y su libertad. La película es conocida por sus escenas de persecución sincronizadas con la banda sonora y su estilo dinámico.</p>
+            </div>
+        </div>
+
+        <!-- Sección de comentarios -->
+        <div class="comment-section">
+            <h2>Deja tu comentario y calificación</h2>
+            <form id="comment-form">
+                <label for="comment">Comentario:</label>
+                <textarea id="comment" name="comment" required></textarea>
+
+                <label for="rating">Calificación (1-10):</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+                <button type="submit">Comentar</button>
+            </form>
+
+            <!-- Sección donde se mostrarán los comentarios -->
+            <div class="comments-display" id="comments-display">
+                <h3>Comentarios de otros usuarios:</h3>
+                <!-- Los comentarios se agregarán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para manejar los comentarios dinámicamente -->
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Evita que se recargue la página
+
+            // Obtener el comentario y la calificación
+            const comment = document.getElementById('comment').value;
+            const rating = document.getElementById('rating').value;
+
+            // Crear un nuevo comentario
+            const commentSection = document.createElement('div');
+            commentSection.classList.add('comment');
+            commentSection.innerHTML = `
+                <p><strong>Comentario:</strong> ${comment}</p>
+                <p><strong>Calificación:</strong> ${rating}/10</p>
+            `;
+
+            // Agregar el comentario a la sección de comentarios
+            document.getElementById('comments-display').appendChild(commentSection);
+
+            // Limpiar el formulario
+            document.getElementById('comment-form').reset();
+        });
+    </script>
+
+</body>
+
+</html>
